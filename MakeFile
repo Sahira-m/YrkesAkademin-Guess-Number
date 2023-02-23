@@ -1,0 +1,25 @@
+#compiler name
+cc :=gcc
+
+#remove command
+RM := rm -rf
+
+#source files
+SOURCES :=guess.c
+
+#object files
+OBJS :=$(SOURCES:.c=.o)
+
+#main target
+guess: $(OBJS)
+    $(CC) $^ -o $@
+
+%.o: %.c
+    $(CC) -c $< -o $@
+ 
+
+.PHONY: clean
+clean:
+    $(RM) *.o guess
+
+ #   target1:"Content of first target">guess.txt
